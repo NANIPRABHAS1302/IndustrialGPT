@@ -1,204 +1,311 @@
-# IndustrialGPT – AI for Industrial Knowledge Intelligence
+Create a modern, professional, enterprise-grade GitHub README.md for my project.
 
-![IndustrialGPT System Architecture](docs/diagrams/system_architecture.svg)
+Project Name:
+IndustrialGPT
 
-> **ET AI Hackathon Submission** — Problem Statement PS 8: *AI for Industrial Knowledge Intelligence: Unified Asset & Operations Brain*  
-> **Author:** Solo Participant  
-> **Status:** Production-Ready / Enterprise Grade  
+Subtitle:
+AI for Industrial Knowledge Intelligence – Unified Asset & Operations Brain
 
----
+The README should have a clean GitHub style similar to high-quality open-source repositories.
 
-## 📌 Project Overview
+Do NOT overuse emojis.
 
-**IndustrialGPT** is an enterprise AI solution engineered to transform industrial operations, asset maintenance, and plant troubleshooting. By unifying legacy document processing, vector search, knowledge graphs, and predictive sensor analytics, IndustrialGPT acts as a **Unified Asset & Operations Brain**.
+Do NOT create long paragraphs.
 
-Plant engineers and operators can interact with the system via a natural language RAG interface grounded in verified Standard Operating Procedures (SOPs), explore complex asset dependency topologies in 2D/3D, monitor real-time sensor health scores, and predict equipment Remaining Useful Life (RUL).
+Use professional markdown formatting.
 
----
+The README should include the following sections.
 
-## ✨ Key Features
+# IndustrialGPT
 
-- **🚀 Hybrid RAG AI Assistant**: Context-grounded Q&A powered by LangChain and ChromaDB with direct document page citations.
-- **🕸️ Neo4j Knowledge Graph Explorer**: Interactive visualization of plant assets, sensors, maintenance logs, and SOP governance links with full Cypher query support.
-- **📄 OCR Document Ingestion Pipeline**: Asynchronous background parsing (Tesseract/PaddleOCR + PyMuPDF + Celery) for PDFs, wiring diagrams, and equipment manuals.
-- **⚡ Predictive Maintenance & RUL Engine**: Real-time sensor processing for Vibration ($\text{mm/s}$), Temperature ($^\circ\text{C}$), and Oil Quality ($\%$) to estimate Remaining Useful Life in hours.
-- **🔒 Enterprise Security & RBAC**: JWT authentication, fine-grained Role-Based Access Control, CORS middleware, and PostgreSQL audit logging.
-- **📊 Operations Dashboard & Analytics**: Real-time KPI telemetry, equipment breakdown analytics, and plant health radar charts.
+A short professional description (3–4 lines) explaining the project and its purpose.
 
 ---
 
-## 🛠️ Technology Stack
+## Project Overview
 
-| Layer | Technologies Used |
-| :--- | :--- |
-| **Frontend** | React 19, TypeScript, Vite, TailwindCSS, Lucide Icons, Recharts, Cytoscape / Three.js |
-| **Backend** | FastAPI (Python 3.11), Uvicorn, Pydantic v2, SQLAlchemy 2.x (Async), Structlog |
-| **Databases** | PostgreSQL 16 (Relational), Neo4j 5 (Graph), ChromaDB 0.4.24 (Vector) |
-| **AI & ML** | LangChain, SentenceTransformers, Tesseract OCR, PaddleOCR, PyMuPDF, Pandas, NumPy |
-| **Task Queue & Cache** | Redis 7, Celery 5 |
-| **DevOps & Infrastructure** | Docker, Docker Compose, Nginx Reverse Proxy |
+Explain:
 
----
+• What IndustrialGPT is
 
-## 📐 Architecture Overview
+• What industrial problem it solves
 
-![System Architecture](docs/diagrams/system_architecture.svg)
+• Why it was developed
 
-IndustrialGPT follows **Clean Architecture** and **SOLID Design Principles**:
-
-1. **Presentation Layer**: React 19 Single Page Application structured into modular feature domains (`chat`, `documents`, `graph`, `maintenance`, `analytics`, `settings`).
-2. **API Gateway & Application Layer**: FastAPI endpoints with JWT middleware, request validation schemas, and structlog event logging.
-3. **Domain Service Layer**: Async Python services (`RAGService`, `KnowledgeGraphService`, `PredictiveMaintenanceService`).
-4. **Data Persistence Layer**: PostgreSQL, ChromaDB, Neo4j, and Redis.
+• Primary users (Plant Engineers, Maintenance Teams, Operators)
 
 ---
 
-## 🚀 Quickstart & Installation
+## Features
 
-### Option 1: Docker Compose (Recommended)
+Professional checklist style.
 
-```bash
-# Clone the repository
-git clone https://github.com/industrial-ai/IndustrialGPT.git
-cd IndustrialGPT
+Include features such as:
 
-# Launch all microservices via Docker Compose
-docker-compose up -d --build
-
-# Access the Web Application at http://localhost:3000
-```
-
-### Option 2: Local Development Setup
-
-#### Backend Setup
-```bash
-cd backend
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-
-# Run FastAPI Dev Server
-uvicorn app.main:app --reload --port 8000
-```
-
-#### Frontend Setup
-```bash
-cd frontend
-npm install
-npm run dev
-```
+- AI-powered Industrial Assistant
+- Retrieval Augmented Generation (RAG)
+- OCR Document Processing
+- Knowledge Graph Visualization
+- Predictive Maintenance
+- Remaining Useful Life Prediction
+- Industrial Analytics Dashboard
+- Role Based Access Control
+- JWT Authentication
+- REST API
+- Document Management
+- Asset Intelligence
+- Real-time Monitoring
 
 ---
 
-## 🔑 Environment Variables (`.env`)
+# Technology Stack
 
-```env
-# General Configuration
-PROJECT_NAME="IndustrialGPT"
-ENVIRONMENT="development"
-API_V1_STR="/api/v1"
-SECRET_KEY="super-secret-enterprise-jwt-key"
+Create a clean table.
 
-# PostgreSQL Database
-POSTGRES_SERVER="localhost"
-POSTGRES_PORT=5432
-POSTGRES_USER="postgres"
-POSTGRES_PASSWORD="password"
-POSTGRES_DB="industrialgpt_db"
+Include
 
-# Neo4j Graph Database
-NEO4J_URI="bolt://localhost:7687"
-NEO4J_USER="neo4j"
-NEO4J_PASSWORD="password"
+Frontend
 
-# Redis & Celery
-REDIS_HOST="localhost"
-REDIS_PORT=6379
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Query
+- React Router
+- Axios
 
-# LLM API Keys
-OPENAI_API_KEY="your-openai-api-key"
-```
+Backend
 
----
+- Python
+- FastAPI
+- SQLAlchemy
+- Pydantic
+- Uvicorn
+- Structlog
 
-## 📊 Application Screenshots
+AI & Machine Learning
 
-| Feature | Screenshot Preview |
-| :--- | :--- |
-| **Login Portal** | ![Login Screen](docs/screenshots/01_login.png) |
-| **Unified Operations Dashboard** | ![Dashboard](docs/screenshots/02_dashboard.png) |
-| **RAG AI Chat Assistant** | ![AI Chat](docs/screenshots/03_ai_chat.png) |
-| **Document Ingestion & OCR** | ![Documents](docs/screenshots/04_document_upload.png) |
-| **Neo4j Knowledge Graph** | ![Knowledge Graph](docs/screenshots/05_knowledge_graph.png) |
-| **Predictive Maintenance Workbench** | ![Predictive Maintenance](docs/screenshots/06_predictive_maintenance.png) |
+- LangChain
+- ChromaDB
+- Sentence Transformers
+- Neo4j
+- Tesseract OCR
+- PaddleOCR
+- PyMuPDF
+- NumPy
+- Pandas
 
----
+Databases
 
-## 📁 Repository Folder Structure
+- PostgreSQL
+- Neo4j
+- ChromaDB
+- Redis
 
-```
-IndustrialGPT/
-├── ai/                      # LangChain agents, prompts, & RAG workflows
-├── backend/                 # FastAPI backend application
-│   ├── app/
-│   │   ├── api/             # REST endpoints (v1)
-│   │   ├── core/            # Config, DB connections, security, logging
-│   │   ├── middleware/      # Auth & Request Logging middleware
-│   │   ├── models.py        # SQLAlchemy 2.x Database Models
-│   │   ├── schemas.py       # Pydantic v2 validation schemas
-│   │   └── services.py      # Domain business logic (RAG, KG, ML)
-│   ├── main.py              # Application entry point
-│   └── requirements.txt     # Python dependencies
-├── docs/                    # Complete Hackathon Deliverables Suite
-│   ├── Hackathon_Submission_Package/
-│   │   ├── INDEX.md                 # Root Package Navigation Index
-│   │   ├── FILE_MANIFEST.md         # Deliverables Inventory Manifest
-│   │   ├── 01_Project_Report/       # Technical Project Report (MD, DOCX, PDF)
-│   │   ├── 02_Hackathon_Submission/ # Official Submission PDF & Exec Summary
-│   │   ├── 03_Presentation/         # PowerPoint Pitch Deck (PPTX)
-│   │   ├── 04_Documentation/        # API, Architecture, DB, User Manual, Install Guide
-│   │   ├── 05_Diagrams/             # SVG & PNG Architecture Diagrams
-│   │   ├── 06_Screenshots/          # 8 High-Res Application UI Screenshots
-│   │   ├── 07_Assets/               # Icons, Logos, Technical Graphics
-│   │   ├── 08_Build_Tools/          # Python PDF, DOCX, PPTX Build Exporters
-│   │   ├── 09_Verification/         # Final Checklist & Trajectory Logs
-│   │   └── 10_Final_Submission/     # Final Zipped Package (.zip)
-├── frontend/                # React 19 TypeScript Frontend
-│   ├── src/
-│   │   ├── components/      # UI components & skeletons
-│   │   ├── features/        # Feature modules (chat, graph, docs, etc.)
-│   │   ├── pages/           # Application views
-│   │   ├── routes/          # React Router v6 routing
-│   │   └── App.tsx          # Root Component
-│   ├── package.json
-│   └── vite.config.ts
-├── knowledge_graph/         # Neo4j Cypher queries & graph builder scripts
-├── ocr/                     # Tesseract & PaddleOCR preprocessing scripts
-├── vector_db/               # ChromaDB collection management scripts
-├── docker-compose.yml       # Production orchestration
-├── nginx/                   # Reverse proxy configuration
-└── README.md                # Repository Documentation
-```
+DevOps
+
+- Docker
+- Docker Compose
+- Nginx
 
 ---
 
-## 📄 Documentation Deliverables Directory (`/docs/Hackathon_Submission_Package`)
+## System Architecture
 
-All submission documents are located in the `/docs/Hackathon_Submission_Package` directory:
-- [Submission Package Index](docs/Hackathon_Submission_Package/INDEX.md)
-- [Deliverables File Manifest](docs/Hackathon_Submission_Package/FILE_MANIFEST.md)
-- [Executive Summary](docs/Hackathon_Submission_Package/02_Hackathon_Submission/EXECUTIVE_SUMMARY.md)
-- [Software Architecture Document](docs/Hackathon_Submission_Package/04_Documentation/ARCHITECTURE.md)
-- [API Documentation](docs/Hackathon_Submission_Package/04_Documentation/API_DOCUMENTATION.md)
-- [Database Schema Document](docs/Hackathon_Submission_Package/04_Documentation/DATABASE_SCHEMA.md)
-- [User Manual](docs/Hackathon_Submission_Package/04_Documentation/USER_MANUAL.md)
-- [Installation Guide](docs/Hackathon_Submission_Package/04_Documentation/INSTALLATION_GUIDE.md)
+Brief explanation.
 
+Frontend
+
+↓
+
+FastAPI Backend
+
+↓
+
+Business Services
+
+↓
+
+PostgreSQL
+
+Neo4j
+
+ChromaDB
+
+Redis
 
 ---
 
-## 📜 License
+## Implemented Modules
 
-Distributed under the MIT License. See `LICENSE` for details.
-#   I n d u s t r i a l G P T - E T - A I - H a c k a t h o n  
- 
+Create a professional table.
+
+Authentication
+
+Dashboard
+
+AI Chat
+
+Document Upload
+
+OCR Pipeline
+
+Knowledge Graph
+
+Predictive Maintenance
+
+Analytics
+
+Settings
+
+Audit Logs
+
+User Management
+
+Role Management
+
+REST APIs
+
+---
+
+## Folder Structure
+
+Generate a clean folder tree.
+
+---
+
+## Installation
+
+Backend
+
+Frontend
+
+Docker
+
+Commands should be formatted inside markdown code blocks.
+
+---
+
+## API Modules
+
+Authentication
+
+Documents
+
+Chat
+
+Knowledge Graph
+
+Maintenance
+
+Analytics
+
+Settings
+
+Health Check
+
+---
+
+## Languages Used
+
+Create a table.
+
+Python
+
+TypeScript
+
+JavaScript
+
+HTML
+
+CSS
+
+SQL
+
+Cypher (Neo4j)
+
+YAML
+
+Markdown
+
+---
+
+## Libraries & Frameworks
+
+List all major frameworks used in the project.
+
+---
+
+## Security Features
+
+JWT Authentication
+
+RBAC
+
+Password Hashing
+
+Input Validation
+
+CORS
+
+Audit Logging
+
+Secure Middleware
+
+---
+
+## AI Components
+
+Explain
+
+OCR Pipeline
+
+Vector Search
+
+Embeddings
+
+Knowledge Graph
+
+Retrieval Augmented Generation
+
+Predictive Maintenance
+
+Remaining Useful Life
+
+---
+
+## Future Enhancements
+
+Professional bullet points.
+
+---
+
+## License
+
+MIT
+
+---
+
+## Author
+
+NANI PRABHAS
+
+ET AI Hackathon
+
+IndustrialGPT
+
+---
+
+The README should look similar to repositories from Microsoft, Google, OpenAI, or NVIDIA.
+
+It should be clean, modern, enterprise-grade, and easy for hackathon judges to read.
+
+Use proper GitHub markdown formatting.
+
+Do not use decorative ASCII art.
+
+Do not use unnecessary emojis.
+
+Do not use marketing language.
+
+Make it look like a production-ready open-source enterprise project.
