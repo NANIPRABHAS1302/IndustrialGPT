@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <rect width="1100" height="700" fill="url(#bg)" />
+
+  <rect x="40" y="25" width="1020" height="55" rx="8" fill="#1e293b" stroke="#334155" stroke-width="2" filter="url(#shadow)" />
+  <text x="550" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle">IndustrialGPT – PostgreSQL Relational ER Diagram</text>
+
+  <!-- Table 1: users -->
+  <g transform="translate(60, 110)">
+    <rect width="220" height="230" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)" />
+    <rect width="220" height="35" rx="8" fill="#3b82f6" />
+    <text x="110" y="23" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">users</text>
+    <text x="15" y="58" fill="#60a5fa" font-family="monospace" font-size="11">PK  id: UUID</text>
+    <text x="15" y="78" fill="#f8fafc" font-family="monospace" font-size="11">    email: VARCHAR(255)</text>
+    <text x="15" y="98" fill="#f8fafc" font-family="monospace" font-size="11">    full_name: VARCHAR</text>
+    <text x="15" y="118" fill="#f8fafc" font-family="monospace" font-size="11">    hashed_pass: VARCHAR</text>
+    <text x="15" y="138" fill="#f8fafc" font-family="monospace" font-size="11">    is_active: BOOLEAN</text>
+    <text x="15" y="158" fill="#f8fafc" font-family="monospace" font-size="11">    is_superuser: BOOL</text>
+    <text x="15" y="178" fill="#f8fafc" font-family="monospace" font-size="11">    department: VARCHAR</text>
+    <text x="15" y="198" fill="#94a3b8" font-family="monospace" font-size="11">    created_at: TZ</text>
+  </g>
+
+  <!-- Table 2: roles -->
+  <g transform="translate(340, 110)">
+    <rect width="220" height="150" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)" />
+    <rect width="220" height="35" rx="8" fill="#2563eb" />
+    <text x="110" y="23" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">roles &amp; permissions</text>
+    <text x="15" y="58" fill="#60a5fa" font-family="monospace" font-size="11">PK  id: UUID</text>
+    <text x="15" y="78" fill="#f8fafc" font-family="monospace" font-size="11">    name: VARCHAR(50)</text>
+    <text x="15" y="98" fill="#f8fafc" font-family="monospace" font-size="11">    description: VARCHAR</text>
+    <text x="15" y="123" fill="#94a3b8" font-family="monospace" font-size="11">M2M user_roles_table</text>
+  </g>
+
+  <!-- Table 3: documents -->
+  <g transform="translate(620, 110)">
+    <rect width="220" height="230" rx="8" fill="#1e293b" stroke="#14b8a6" stroke-width="2" filter="url(#shadow)" />
+    <rect width="220" height="35" rx="8" fill="#14b8a6" />
+    <text x="110" y="23" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">documents</text>
+    <text x="15" y="58" fill="#2dd4bf" font-family="monospace" font-size="11">PK  id: UUID</text>
+    <text x="15" y="78" fill="#f8fafc" font-family="monospace" font-size="11">    title: VARCHAR(255)</text>
+    <text x="15" y="98" fill="#f8fafc" font-family="monospace" font-size="11">    filename: VARCHAR</text>
+    <text x="15" y="118" fill="#f8fafc" font-family="monospace" font-size="11">    file_type: VARCHAR</text>
+    <text x="15" y="138" fill="#f8fafc" font-family="monospace" font-size="11">    category: VARCHAR</text>
+    <text x="15" y="158" fill="#f8fafc" font-family="monospace" font-size="11">    status: VARCHAR</text>
+    <text x="15" y="178" fill="#a7f3d0" font-family="monospace" font-size="11">FK  owner_id: users.id</text>
+    <text x="15" y="198" fill="#94a3b8" font-family="monospace" font-size="11">    tags: JSONB</text>
+  </g>
+
+  <!-- Table 4: document_chunks -->
+  <g transform="translate(860, 110)">
+    <rect width="200" height="200" rx="8" fill="#1e293b" stroke="#14b8a6" stroke-width="2" filter="url(#shadow)" />
+    <rect width="200" height="35" rx="8" fill="#0d9488" />
+    <text x="100" y="23" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">document_chunks</text>
+    <text x="15" y="58" fill="#2dd4bf" font-family="monospace" font-size="11">PK  id: UUID</text>
+    <text x="15" y="78" fill="#a7f3d0" font-family="monospace" font-size="11">FK  document_id</text>
+    <text x="15" y="98" fill="#f8fafc" font-family="monospace" font-size="11">    chunk_index: INT</text>
+    <text x="15" y="118" fill="#f8fafc" font-family="monospace" font-size="11">    content: TEXT</text>
+    <text x="15" y="138" fill="#f8fafc" font-family="monospace" font-size="11">    token_count: INT</text>
+    <text x="15" y="158" fill="#fde047" font-family="monospace" font-size="11">    vector_id: VARCHAR</text>
+  </g>
+
+  <!-- Table 5: assets -->
+  <g transform="translate(60, 400)">
+    <rect width="240" height="250" rx="8" fill="#1e293b" stroke="#a855f7" stroke-width="2" filter="url(#shadow)" />
+    <rect width="240" height="35" rx="8" fill="#a855f7" />
+    <text x="120" y="23" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">assets</text>
+    <text x="15" y="58" fill="#c084fc" font-family="monospace" font-size="11">PK  id: UUID</text>
+    <text x="15" y="78" fill="#f8fafc" font-family="monospace" font-size="11">    serial_number: VARCHAR</text>
+    <text x="15" y="98" fill="#f8fafc" font-family="monospace" font-size="11">    name: VARCHAR(255)</text>
+    <text x="15" y="118" fill="#f8fafc" font-family="monospace" font-size="11">    category: VARCHAR</text>
+    <text x="15" y="138" fill="#f8fafc" font-family="monospace" font-size="11">    plant_location: VARCHAR</text>
+    <text x="15" y="158" fill="#fde047" font-family="monospace" font-size="11">    health_score: FLOAT</text>
+    <text x="15" y="178" fill="#fde047" font-family="monospace" font-size="11">    rul_hours: FLOAT</text>
+    <text x="15" y="198" fill="#f8fafc" font-family="monospace" font-size="11">    vibration_mms: FLOAT</text>
+    <text x="15" y="218" fill="#f8fafc" font-family="monospace" font-size="11">    temperature_c: FLOAT</text>
+  </g>
+
+  <!-- Table 6: maintenance_logs -->
+  <g transform="translate(360, 400)">
+    <rect width="220" height="210" rx="8" fill="#1e293b" stroke="#a855f7" stroke-width="2" filter="url(#shadow)" />
+    <rect width="220" height="35" rx="8" fill="#9333ea" />
+    <text x="110" y="23" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">maintenance_logs</text>
+    <text x="15" y="58" fill="#c084fc" font-family="monospace" font-size="11">PK  id: UUID</text>
+    <text x="15" y="78" fill="#e9d5ff" font-family="monospace" font-size="11">FK  asset_id: assets.id</text>
+    <text x="15" y="98" fill="#f8fafc" font-family="monospace" font-size="11">    title: VARCHAR(255)</text>
+    <text x="15" y="118" fill="#f8fafc" font-family="monospace" font-size="11">    description: TEXT</text>
+    <text x="15" y="138" fill="#f8fafc" font-family="monospace" font-size="11">    technician: VARCHAR</text>
+    <text x="15" y="158" fill="#94a3b8" font-family="monospace" font-size="11">    serviced_at: TZ</text>
+    <text x="15" y="178" fill="#f8fafc" font-family="monospace" font-size="11">    cost: FLOAT</text>
+  </g>
+
+  <!-- Table 7 & 8: chat_sessions & chat_messages -->
+  <g transform="translate(640, 400)">
+    <rect width="220" height="210" rx="8" fill="#1e293b" stroke="#eab308" stroke-width="2" filter="url(#shadow)" />
+    <rect width="220" height="35" rx="8" fill="#ca8a04" />
+    <text x="110" y="23" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">chat_sessions / msgs</text>
+    <text x="15" y="58" fill="#fde047" font-family="monospace" font-size="11">PK  session_id: UUID</text>
+    <text x="15" y="78" fill="#60a5fa" font-family="monospace" font-size="11">FK  user_id: users.id</text>
+    <text x="15" y="98" fill="#f8fafc" font-family="monospace" font-size="11">    model: VARCHAR(50)</text>
+    <text x="15" y="128" fill="#fde047" font-family="monospace" font-size="11">PK  msg_id: UUID</text>
+    <text x="15" y="148" fill="#fde047" font-family="monospace" font-size="11">FK  session_id</text>
+    <text x="15" y="168" fill="#f8fafc" font-family="monospace" font-size="11">    content &amp; citations</text>
+  </g>
+
+  <!-- Foreign Key Lines -->
+  <line x1="280" y1="225" x2="620" y2="225" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4,4" />
+  <line x1="840" y1="210" x2="860" y2="210" stroke="#14b8a6" stroke-width="2" />
+  <line x1="300" y1="520" x2="360" y2="520" stroke="#a855f7" stroke-width="2" />
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <rect width="1000" height="600" fill="url(#bg)" />
+
+  <rect x="40" y="25" width="920" height="55" rx="8" fill="#1e293b" stroke="#334155" stroke-width="2" filter="url(#shadow)" />
+  <text x="500" y="60" fill="#f8fafc" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle">IndustrialGPT – Neo4j Knowledge Graph Ontology &amp; Workflow</text>
+
+  <!-- Graph Nodes -->
+  <!-- Asset Node -->
+  <circle cx="500" cy="200" r="45" fill="#2563eb" stroke="#60a5fa" stroke-width="3" filter="url(#shadow)" />
+  <text x="500" y="200" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Asset</text>
+  <text x="500" y="215" fill="#bfdbfe" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Turbine-B</text>
+
+  <!-- Sensor Node -->
+  <circle cx="220" cy="350" r="40" fill="#0d9488" stroke="#2dd4bf" stroke-width="3" filter="url(#shadow)" />
+  <text x="220" y="350" fill="#ffffff" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Sensor</text>
+  <text x="220" y="365" fill="#99f6e4" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Vib-04</text>
+
+  <!-- SOP Node -->
+  <circle cx="780" cy="350" r="40" fill="#9333ea" stroke="#c084fc" stroke-width="3" filter="url(#shadow)" />
+  <text x="780" y="350" fill="#ffffff" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">SOP</text>
+  <text x="780" y="365" fill="#e9d5ff" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">SOP-204</text>
+
+  <!-- MaintenanceLog Node -->
+  <circle cx="360" cy="480" r="40" fill="#ca8a04" stroke="#fde047" stroke-width="3" filter="url(#shadow)" />
+  <text x="360" y="475" fill="#ffffff" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Log</text>
+  <text x="360" y="490" fill="#fef08a" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Maint-88</text>
+
+  <!-- Anomaly Node -->
+  <circle cx="640" cy="480" r="40" fill="#dc2626" stroke="#f87171" stroke-width="3" filter="url(#shadow)" />
+  <text x="640" y="475" fill="#ffffff" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Anomaly</text>
+  <text x="640" y="490" fill="#fecaca" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">High Vib</text>
+
+  <!-- Relationships -->
+  <!-- Asset -> Sensor (MONITORS) -->
+  <line x1="460" y1="222" x2="255" y2="333" stroke="#2dd4bf" stroke-width="2.5" />
+  <text x="340" y="265" fill="#2dd4bf" font-family="Arial, sans-serif" font-size="11" font-weight="bold">[:MONITORS]</text>
+
+  <!-- SOP -> Asset (GOVERNS) -->
+  <line x1="742" y1="332" x2="540" y2="222" stroke="#c084fc" stroke-width="2.5" />
+  <text x="660" y="265" fill="#c084fc" font-family="Arial, sans-serif" font-size="11" font-weight="bold">[:GOVERNS_MAINTENANCE]</text>
+
+  <!-- Log -> Asset (PERFORMED_ON) -->
+  <line x1="385" y1="450" x2="480" y2="242" stroke="#fde047" stroke-width="2.5" />
+  <text x="410" y="360" fill="#fde047" font-family="Arial, sans-serif" font-size="11" font-weight="bold">[:PERFORMED_ON]</text>
+
+  <!-- Anomaly -> Sensor (TRIGGERED_BY) -->
+  <line x1="605" y1="465" x2="255" y2="365" stroke="#f87171" stroke-width="2.5" />
+  <text x="430" y="430" fill="#f87171" font-family="Arial, sans-serif" font-size="11" font-weight="bold">[:TRIGGERED_BY]</text>
+</svg>
