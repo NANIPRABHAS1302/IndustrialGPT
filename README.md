@@ -1,21 +1,3 @@
-Create a modern, professional, enterprise-grade GitHub README.md for my project.
-
-Project Name:
-IndustrialGPT
-
-Subtitle:
-AI for Industrial Knowledge Intelligence – Unified Asset & Operations Brain
-
-The README should have a clean GitHub style similar to high-quality open-source repositories.
-
-Do NOT overuse emojis.
-
-Do NOT create long paragraphs.
-
-Use professional markdown formatting.
-
-The README should include the following sections.
-
 # IndustrialGPT
 
 A short professional description (3–4 lines) explaining the project and its purpose.
